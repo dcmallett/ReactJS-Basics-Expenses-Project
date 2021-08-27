@@ -20,6 +20,9 @@ const ExpenseItem = (props) => {
 		const changeTitleHandler = () => {
 			//we assign a new value by calling the state updatefunction and pass
 			//the new value as argument;
+
+			//we call useState to tell React to manage state for us we dont see the variable
+			//we don't assign a new value for the updating function. #
 			setExpenseTitle('Updated')
 		}
 
@@ -33,6 +36,8 @@ const ExpenseItem = (props) => {
 					 	the special thing about these {} between them you can run basic
 					 	js expressions i.e 1+ 1 the result of this expression will be displayed
 					*/}
+
+					{/*we then pass the first element in the useState i.e expesneTitle to output the new state changed by the updating function i.e setExpenseTitle */}
 					<h2>{expenseTitle}</h2>
 				</div>
 				<div className="expense-item__price">${props.expenseAmount}</div>

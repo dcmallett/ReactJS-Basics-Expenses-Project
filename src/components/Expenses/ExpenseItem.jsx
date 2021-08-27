@@ -12,6 +12,9 @@ const ExpenseItem = (props) => {
 
 		//use state returns an array the first value is the variable itself.
 		//the second is the updating function the order MATTERS names do not
+
+		//this expenseItem function is called 4 times when we call ExpenseItem
+		//each time its called a new seperate state is created maanaged independity by React
 		const [expenseTitle, setExpenseTitle] = useState(props.expenseTitle);
 
 		const changeTitleHandler = () => {

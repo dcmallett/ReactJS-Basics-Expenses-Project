@@ -1,11 +1,25 @@
+import { useState } from 'react';
 import ExpenseItem from './ExpenseItem';
+import ExpenseFilter from './ExpenseFilter';
+
 import BaseCard from '../UI/BaseCard';
 
 import './Expenses.css';
 
+
 const Expenses = (props) => {
+
+    const [filterYear, setFilteredYear] = useState('2020');
+
+    const filterChangeHandler = (selectedYear) => {
+        setFilteredYear(selectedYear);
+    };
+
+
+
     return (
         <BaseCard className="expenses">
+            <ExpenseFilter selected={filterYear} onChangeFilter={filterChangeHandler} />
             <ExpenseItem 
             //so here we are passing in attributes to our ExpenseItem Component
             //the property value on the left i.e expenseTitle Can be anything

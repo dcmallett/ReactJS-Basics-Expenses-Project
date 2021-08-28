@@ -35,10 +35,14 @@ const NewExpenseForm = (props) => {
         //so becuase we are using the value prop on the inputs as two way binding. 
         //we then call our propertiy names on that value field and then in our handler or where,
         //we need to reset the fields we re-call the state updatingfunctions. I.E setEnteredTItle and assign it to an empty string.
+        
+        //so here we call props and call our onSaveExpenseData prop.
+        //which we will execute here
+        //we pass the expenseData value we created above
+        props.onSaveExpenseData(expenseData)
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
-        console.log(expenseData);
     }
 
     return (
@@ -50,7 +54,14 @@ const NewExpenseForm = (props) => {
                             two way binding: inputs we can pass a new value back into the input reset and change the input programatically
                             using the value attribute set internal value prop and set it a new value;
                     */}
-                    <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+                    {/*we can now expect the onSaveExpenseData prop. becuase we are setting it in the NEwExpense component so now in NewExpenseForm we can extract the value passed for this prop i.e */}
+                    <input 
+                        type="text" 
+                        value={enteredTitle} 
+                        onChange={titleChangeHandler}
+
+                        
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor="">Amount:</label>

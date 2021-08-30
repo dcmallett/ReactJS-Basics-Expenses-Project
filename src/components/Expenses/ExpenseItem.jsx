@@ -7,24 +7,25 @@ const ExpenseItem = (props) => {
 
 		//react jsx code here
 		return (
-			<BaseCard className="expense-item">
-				<ExpenseDate expenseDate={props.expenseDate} />
-				<div className="expense-item__description">
-					{/* 
-						we can use the Opening and closing {} 
-					 	the special thing about these {} between them you can run basic
-					 	js expressions i.e 1+ 1 the result of this expression will be displayed
-					*/}
+			<li>
+				<BaseCard className="expense-item">
+					<ExpenseDate expenseDate={props.expenseDate} />
+					<div className="expense-item__description">
+						{/* 
+							we can use the Opening and closing {} 
+							the special thing about these {} between them you can run basic
+							js expressions i.e 1+ 1 the result of this expression will be displayed
+						*/}
 
-					{/*we then pass the first element in the useState i.e expesneTitle to output the new state changed by the updating function i.e setExpenseTitle */}
-					<h2>{props.expenseTitle}</h2>
-				</div>
-				<div className="expense-item__price">${props.expenseAmount}</div>
-				{/*onclick wants a function event handler props want a function as a value
-					remeber you don't execute your event handlers here. you just point at it.
-				*/}
-				<button>Change Title</button>
-			</BaseCard>
+						{/*we then pass the first element in the useState i.e expesneTitle to output the new state changed by the updating function i.e setExpenseTitle */}
+						<h2>{props.expenseTitle}</h2>
+					</div>
+					<div className="expense-item__price">${props.expenseAmount}</div>
+					{/*onclick wants a function event handler props want a function as a value
+						remeber you don't execute your event handlers here. you just point at it.
+					*/}
+				</BaseCard>
+			</li>
 	)
 }
 

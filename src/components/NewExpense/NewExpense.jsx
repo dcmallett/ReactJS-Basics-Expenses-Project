@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import './NewExpense.css';
 import NewExpenseForm from './NewExpenseForm';
 
 const NewExpense = (props) => {
+    const [isEditing, setIsEditing] = useState(false);
 
     const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {
@@ -12,12 +14,32 @@ const NewExpense = (props) => {
             ...enteredExpenseData,
             id: Math.random().toString()
         };
-        props.onAddExpenseData(expenseData)
+        props.onAddExpenseData(expenseData);
+        setIsEditing(false);
         // console.log(expenseData);
+    }
+
+
+    const startEditingHandler = () => {
+        setIsEditing(true)
+    }
+
+    const stopEditingHandler = () => {
+        setIsEditing(false)
     }
     return (
         <div className="new-expense">
 
+            {!isEditing && (
+                <button onClick={startEditingHandler}>Add new expense</button>
+            )}
+            
+            {isEditing && (
+                 <NewExpenseForm 
+                    onSaveExpenseData={saveExpenseDataHandler} 
+                    onCancel={stopEditingHandler}
+                />
+            )}
             {/*
                 here we are trying to pass our "expenseData" to our app component
                 so we need to go up. first we create a prop in our NewExpesne.jsx on the NewExpenseForm component.
@@ -26,7 +48,6 @@ const NewExpense = (props) => {
                 on to follow the convention that should be called in the component
                         then we pass the newly created saveExpenseDataHandler as a pointer to our prop onSaveExpenseData.
             */}
-            <NewExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
         </div>
     )
 }   
